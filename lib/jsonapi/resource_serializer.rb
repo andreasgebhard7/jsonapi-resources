@@ -183,7 +183,8 @@ module JSONAPI
         id_format = 'id' if id_format == :default
         obj_hash['id'] = format_value(source.id, id_format)
 
-        obj_hash['type'] = format_key(source.class._type.to_s)
+        #obj_hash['type'] = format_key(source.class._type.to_s)
+        obj_hash['type'] = source.class.to_s.sub(/Resource\Z/, '')
 
         links = links_hash(source)
         obj_hash['links'] = links unless links.empty?
