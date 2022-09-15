@@ -863,7 +863,7 @@ module JSONAPI
           return @_model_name.to_s if defined?(@_model_name)
           class_name = self.name
           return '' if class_name.nil?
-          @_model_name = class_name.demodulize.sub(/Resource$/, '')
+          @_model_name = class_name.sub(/Resource$/, '')
           @_model_name.to_s
         end
       end
